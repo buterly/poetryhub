@@ -3,96 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poem Hub</title>
+    <title>Poem Hub - Submit</title>
     <style>
-        /* Basic styling (customize as desired) */
+        /* Basic styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f9f9f9; /* Light gray background */
+            color: #333;
         }
+
+        /* Title bar styling with black background */
         header {
-            background-color: #333;
+            background-color: #000; /* Black background */
             color: #fff;
-            padding: 1rem;
+            padding: 1.5rem 2rem;
             text-align: center;
+            border-bottom: 4px solid #2980B9; /* Blue border */
         }
+
+        /* Title text with red and blue color */
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .poem-text {
+            color: #E74C3C; /* Red */
+            font-weight: bold;
+            display: inline-block;
+            animation: fadeInRight 2s ease-in-out forwards;
+        }
+
+        .hub-text {
+            color: #3498DB; /* Blue */
+            font-weight: bold;
+            margin-left: 0.3rem;
+            text-shadow: 1px 1px 3px rgba(52, 152, 219, 0.6); /* Blue glow */
+            animation: fadeInRight 2s ease-in-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        /* Card container styling */
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 2rem auto;
             padding: 1rem;
         }
-        .poem {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .discover-link {
-            text-align: center;
-            margin-top: 1rem;
-        }
-        .hub-box {
-            background-color: #E89B1D;
-            border-radius: 10px;
-            padding: 0.5rem;
-            display: inline-block;
-        }
-        .signup-form {
+
+        /* Poem submission form styling */
+        .poem-form {
             background-color: #fff;
             border: 1px solid #ddd;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 300px;
         }
+
         .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #F39C12; /* Yellow-orange button */
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #F1C40F; /* Light yellow on hover */
+        }
+
+        /* Recent poems section */
+        .poem {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .poem h2 {
+            color: #E74C3C; /* Red */
             margin-bottom: 1rem;
+        }
+
+        .poem ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .poem ul li {
+            font-size: 1rem;
+            color: #7F8C8D; /* Muted gray */
+            margin-bottom: 1rem;
+        }
+
+        /* Discover link styling */
+        .discover-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .discover-link a {
+            color: #2980B9; /* Blue */
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .discover-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation for title */
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Poem <span class="hub-box">Hub</span></h1>
+        <h1><span class="poem-text">Poem</span><span class="hub-text">Hub</span></h1>
     </header>
+    
     <div class="container">
-         <div class="poem-form poem">
-            <h2>Share your poem</h2>
-            <form  method="POST">
+        <div class="poem-form">
+            <h2>Share Your Poem</h2>
+            <form method="POST">
                 {% csrf_token %}
-
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text"  name="title" required>
+                    <input type="text" name="title" required>
                 </div>
                 <div class="form-group">
-                    <textarea rows="12" cols="100" placeholder="Write your poem here" name="poem"></textarea>
+                    <label for="poem">Poem</label>
+                    <textarea rows="12" name="poem" required placeholder="Write your poem here"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="name">Your name </label>
-                    <input type="text"  name="name" required>
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" required>
                 </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
 
-        <!-- Display poems (you can fetch these from a server) -->
+        <!-- Recent Poems Section (can be dynamically populated) -->
         <div class="poem">
             <h2>Recent Poems</h2>
             <p>Here are some beautiful poems shared by our community:</p>
             <ul>
                 <li>Roses are red, violets are blue...</li>
                 <li>When the moon whispers...</li>
-                <!-- Add more poems dynamically -->
+                <!-- More poems will be displayed here -->
             </ul>
         </div>
     </div>
 
-    <!-- Discover tab (linked to a separate page or section) -->
+    <!-- Discover Link -->
     <div class="discover-link">
         <a href="/">Discover More Poems</a>
     </div>
 </body>
 </html>
-
