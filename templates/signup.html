@@ -5,45 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <style>
+        /* Apply the background image */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-image: url('https://scontent-del2-2.xx.fbcdn.net/o1/v/t0/f1/m340/genai_m4_cco_rva_v3:upload_img_42135200_11_10_2024_06_05_00_604605_3577213747937415544.jpeg?_nc_ht=scontent-del2-2.xx.fbcdn.net&_nc_cat=106&ccb=9-4&oh=00_AYDUAMncC5DrpeAwB46Vz0--fm41GtIbGJD0t84tj1zvXg&oe=673280B3&_nc_sid=5b3566');
+            background-size: cover; /* Ensure the image covers the entire background */
+            background-position: center; /* Center the image */
+            height: 100vh; /* Full height of the viewport */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
+
+        /* Sign-up form container with glassmorphism effect */
         .signup-form {
-            background-color: #fff;
-            border: 1px solid #ddd;
+            background: rgba(255, 255, 255, 0.7); /* Light semi-transparent background */
+            border-radius: 12px;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 350px;
+            text-align: center;
+            animation: fadeInUp 1.5s ease-out; /* Adding the appearing animation */
         }
+
+        /* Heading style */
+        h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Form group styling */
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
         }
+
         label {
             font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
         }
+
+        /* Input field styling */
         input[type="text"],
-        input[type="email"],
         input[type="password"] {
             width: 100%;
-            padding: 0.5rem;
+            padding: 0.75rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background-color: rgba(255, 255, 255, 0.8); /* Light transparent background */
+            color: #333;
         }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 6px rgba(0, 123, 255, 0.6);
+            outline: none;
+        }
+
+        /* Button styling */
         button {
-            background-color: #333;
+            background-color: #007bff;
             color: #fff;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animation for the sign-up form */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -64,4 +115,3 @@
     </div>
 </body>
 </html>
-
