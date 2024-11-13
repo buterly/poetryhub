@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Poetry Hub{% endblock %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="title-bar">
+    <h1><span class="poem-text">Poem</span><span class="hub-text">Hub</span></h1>
+    <div class="submit-button">
+        <a href="{% url 'post' %}">Submit New Poem</a>
+    </div>
+</div>
+
+<div class="card-container">
+    {% for poem in poems %}
+    <div class="card">
+        <div class="poem-title">{{ poem.title }}</div>
+        <div class="poem-content">{{ poem.poem|linebreaks }}</div>
+        <div class="user-name">- {{ poem.author.username }}</div>
+    </div>
+    {% empty %}
+    <p class="no-poems-message">No poems available. Be the first to <a href="{% url 'post' %}">submit a poem</a>.
+    </p>
+    {% endfor %}
+</div>
+
+{% endblock %}

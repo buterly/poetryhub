@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Submit{% endblock %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'post.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1><span class="poem-text">Poem</span><span class="hub-text">Hub</span></h1>
+</header>
+
+<div class="container">
+    <div class="poem-form">
+        <h2>Share Your Poem</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="poem">Poem</label>
+                <textarea rows="12" name="poem" required placeholder="Write your poem here"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" name="name" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <!-- Discover Link -->
+    <div class="discover-link">
+        <a href="/">Discover More Poems</a>
+    </div>
+
+{% endblock %}

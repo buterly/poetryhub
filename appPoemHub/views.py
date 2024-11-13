@@ -4,19 +4,9 @@ from appPoemHub.models import Poems
 # Create your views here.
 
 def index(request):
-    # context = {
-    #     'title' : 'Lust of Bust',
-    #     'content' : 'My lil friend is biting dust while that woman with bust...',
-    #     'writer' : 'Gayib'
-
-    # }
     context = {
         'poems' : Poems.objects.all(),
     }
-
-    # obj = Poems.objects.all()
-    # for o in obj:
-    #     print(o, o.poem)
 
     return render(request, 'index.html', context)
 

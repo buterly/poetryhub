@@ -5,5 +5,4 @@ from appPoemHub import views
 urlpatterns = [
     path('', views.index, name='home'),
     path('post', views.post, name='post'),
-    path('signup', views.signup, name='signup'),
 ]

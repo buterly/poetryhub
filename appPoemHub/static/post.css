@@ -1,0 +1,146 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 4px solid #2980B9;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.poem-text {
+    color: #E74C3C;
+    font-weight: bold;
+    display: inline-block;
+    animation: fadeInRight 2s ease-in-out forwards;
+}
+
+.hub-text {
+    color: #3498DB;
+    font-weight: bold;
+    margin-left: 0.3rem;
+    text-shadow: 1px 1px 3px rgba(52, 152, 219, 0.6);
+    animation: fadeInRight 2s ease-in-out forwards;
+    animation-delay: 0.2s;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+
+.poem-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    background-color: #E74C3C;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #da6356;
+
+}
+
+
+.poem {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.poem h2 {
+    color: #E74C3C;
+    margin-bottom: 1rem;
+}
+
+.poem ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.poem ul li {
+    font-size: 1rem;
+    color: #7F8C8D;
+
+    margin-bottom: 1rem;
+}
+
+
+.discover-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.discover-link a {
+    color: #2980B9;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.discover-link a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
