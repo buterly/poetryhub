@@ -21,9 +21,9 @@
 <div class="card-container">
     {% for poem in poems %}
     <div class="card">
-        <div class="poem-title">{{ poem.title }}</div>
+        <div class="poem-title">{{ poem.title|capfirst }}</div>
         <div class="poem-content">{{ poem.poem|linebreaks }}</div>
-        <div class="user-name">- {{ poem }}</div>
+        <div class="user-name">- {{ poem|capfirst }}</div>
     </div>
     {% empty %}
     <p class="no-poems-message">No poems available. Be the first to <a href="{% url 'post' %}">submit a poem</a>.
