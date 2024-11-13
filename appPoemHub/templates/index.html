@@ -23,7 +23,7 @@
     <div class="card">
         <div class="poem-title">{{ poem.title }}</div>
         <div class="poem-content">{{ poem.poem|linebreaks }}</div>
-        <div class="user-name">- {{ poem.author.username }}</div>
+        <div class="user-name">- {{ poem }}</div>
     </div>
     {% empty %}
     <p class="no-poems-message">No poems available. Be the first to <a href="{% url 'post' %}">submit a poem</a>.
